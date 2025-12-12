@@ -18,5 +18,10 @@ namespace SzpitalnaKadra.Data
         public DbSet<KompetencjeUmiejetnosci> KompetencjeUmiejetnosci { get; set; }
         public DbSet<DoswiadczenieZawodowe> DoswiadczenieZawodowe { get; set; }
         public DbSet<MiejscePracy> MiejscaPracy { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
