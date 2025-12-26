@@ -40,7 +40,7 @@ namespace SzpitalnaKadra.Models
         [Column("numer_telefonu")]
         public string? NumerTelefonu { get; set; }
 
-        [Column("data_zgonu", TypeName = "date")]
+        [NotMapped]
         public DateTime? DataZgonu { get; set; }
     }
 }

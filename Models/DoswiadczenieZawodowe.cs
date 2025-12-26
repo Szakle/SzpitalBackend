@@ -16,14 +16,14 @@ namespace SzpitalnaKadra.Models
 
         [Column("kod")]
         [StringLength(50)]
-        public string Kod { get; set; }
+        public string? Kod { get; set; }
 
         [Column("nazwa")]
         [StringLength(255)]
-        public string Nazwa { get; set; }
+        public string? Nazwa { get; set; }
 
         [Column("zaswiadczenie")]
         [StringLength(255)]
-        public string Zaswiadczenie { get; set; }
+        public string? Zaswiadczenie { get; set; }
     }
 }
