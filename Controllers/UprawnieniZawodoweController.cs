@@ -41,9 +41,17 @@ namespace SzpitalnaKadra.Controllers
         [HttpGet("options/npwz")]
         public ActionResult<IEnumerable<string>> GetNpwzOptions()
         {
+            // Zwraca wszystkie PWZ z bazy, usuwając prefiks PWZ jeśli istnieje
             var npwz = _context.UprawnieniZawodowe
                 .Where(u => !string.IsNullOrEmpty(u.NpwzIdRizh))
-                .Select(u => u.NpwzIdRizh)
+                .AsEnumerable()
+                .Select(u => 
+                {
+                    // Usuwamy prefiks PWZ jeśli istnieje
+                    return u.NpwzIdRizh.StartsWith("PWZ", System.StringComparison.OrdinalIgnoreCase) 
+                        ? u.NpwzIdRizh.Substring(3) 
+                        : u.NpwzIdRizh;
+                })
                 .Distinct()
                 .OrderBy(n => n)
                 .ToList();
